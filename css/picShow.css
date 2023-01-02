@@ -1,0 +1,58 @@
+.pic-show {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+.pic-show .pic-window {
+    top: calc(50% - 300px / 2);
+    left: calc(50% - 500px / 2);
+    width: 500px;
+    height: 300px;
+    border-radius: var(--border-radius-default);
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 8px var(--shadow-rgba-default);
+    opacity: 1;
+    transition: opacity var(--transition-time-default);
+    pointer-events: auto;
+}
+
+.pic-show .pic-window.closing {
+    opacity: 0;
+}
+
+.pic-show .pic-window .dragging-top {
+    box-shadow: 0 0 8px var(--shadow-rgba-default);
+    padding: 8px;
+}
+
+.pic-window .dragging-top .dragging-title {
+    color: var(--font-color-black);
+}
+
+.pic-show .pic-window .pic-area {
+    padding: 8px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.pic-window .pic-area img {
+    cursor: move;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
+    width: 90%;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 520px) {
+    .pic-show .pic-window {
+        top: calc(50% - 300px / 2);
+        left: calc(50% - 90% / 2);
+        width: 90%;
+        height: 300px;
+    }
+}

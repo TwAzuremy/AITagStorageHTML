@@ -1,0 +1,583 @@
+/* CSS 变量 */
+:root {
+    /* sidebar */
+    --sidebar-min-height: 560px;
+    /* color */
+    --bg-color: rgb(255, 255, 255);
+    --color-primary-rgb:
+        /* #346dff */
+        52, 109, 255;
+    --color-error-rgb:
+        /* #ff4040 */
+        255, 64, 64;
+    --font-color-primary-rgb:
+        /* #ffffff */
+        255, 255, 255;
+    --font-color-black-rgb:
+        /* #000000 */
+        0, 0, 0;
+    --color-primary: rgba(var(--color-primary-rgb), .87);
+    --color-sub: rgba(var(--color-primary-rgb), .54);
+    --color-error: rgba(var(--color-error-rgb), .87);
+    --divider-color: rgba(227, 227, 227, .72);
+    /* svg */
+    --svg-color-default: rgb(189, 189, 189);
+    --svg-size-default: 32px;
+    --svg-size-littleBig: 40px;
+    --svg-size-littleSmall: 24px;
+    --svg-size-fixed: 24px;
+    --svg-size-fixed-small: 16px;
+    /* font */
+    --font-color-primary: rgba(var(--font-color-primary-rgb), 1);
+    --font-color-sub: rgba(var(--font-color-primary-rgb), .7);
+    --font-color-black: rgba(var(--font-color-black-rgb), .87);
+    --font-color-black-sub: rgba(var(--font-color-black-rgb), .54);
+    --font-size-default: 16px;
+    --font-size-big: 20px;
+    --font-size-small: 14px;
+    /* shadow */
+    --shadow-rgba-default: rgba(0, 0, 0, .08);
+    --shadow-rgba-blue: rgba(var(--color-primary-rgb), .45);
+    /* border */
+    --border-radius-default: 8px;
+    --border-radius-small: 4px;
+    /* transition */
+    --transition-time-default: .3s;
+    /* input */
+    --input-border-color-default: rgb(189, 189, 189);
+    --input-border-color-hover: rgb(128, 128, 128);
+    --input-border-color-focus: rgb(var(--color-primary-rgb));
+    /* scroll bar color */
+    --scroll-bar-color: #A0C7FF;
+    /* radio */
+    --input-radio-size: 16px;
+    --input-radio-done: 76%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Consolas', sans-serif;
+}
+
+*::selection {
+    background-color: rgba(var(--color-primary-rgb), .6);
+    color: #ffffff;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: rgb(240, 248, 255);
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 深色模式下改变 CSS 变量 */
+body.dark {
+    background-color: rgb(51, 51, 51);
+    --bg-color: rgb(59, 59, 59);
+    --font-color-black: #ffffff;
+    --font-color-black-sub: rgba(255, 255, 255, .71);
+    --svg-color-default: #ffffff;
+    --color-primary-rgb: 99, 99, 99;
+    --color-primary: rgba(var(--color-primary-rgb), .87);
+    --shadow-rgba-blue: rgba(var(--color-primary-rgb), .45);
+    --shadow-rgba-default: rgba(0, 0, 0, .2);
+}
+
+/* 设置滚动条宽度 */
+body::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* 设置滚动条背景 */
+body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* 设置滚动条的样式 */
+body::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: var(--scroll-bar-color);
+}
+
+/* 响应式, 当页面宽度低于 790px 则使用以下样式 */
+@media screen and (max-height: 790px) {
+    :root {
+        --svg-size-default: 24px;
+        --svg-size-littleBig: 32px;
+        --svg-size-littleSmall: 16px;
+    }
+}
+
+/* 设置一些会共同或会使用非常多的样式, 直接以类名形式放入, 就不用在其样式中添加, 减少 css 代码量 */
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.noBorder_fill_button {
+    border: none;
+    width: calc(var(--svg-size-default) + 12px);
+    height: calc(var(--svg-size-default) + 12px);
+    transition: all var(--transition-time-default);
+    border-radius: var(--border-radius-small);
+    background-color: var(--bg-color);
+    color: var(--svg-color-default);
+    padding: 6px;
+    cursor: pointer;
+}
+
+.noBorder_fill_button:hover {
+    color: var(--color-primary);
+    box-shadow: 0 0 8px 2px var(--shadow-rgba-blue);
+}
+
+.noBorder_fill_button.select {
+    color: var(--font-color-primary);
+    background-color: var(--color-primary);
+}
+
+.noBorder_fill_button.dark {
+    color: var(--font-color-primary);
+    background-color: var(--color-primary);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.flex-aic {
+    align-items: center;
+}
+
+.flex-jcc {
+    justify-content: center;
+}
+
+.flex2center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexRow {
+    flex-direction: row;
+}
+
+.flexColumn {
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+.pointEvenNone {
+    pointer-events: none;
+}
+
+.not-allowed {
+    cursor: not-allowed;
+}
+
+.small_svg {
+    width: var(--svg-size-littleSmall);
+    height: var(--svg-size-littleSmall);
+}
+
+.default_svg {
+    width: var(--svg-size-default);
+    height: var(--svg-size-default);
+}
+
+.big_svg {
+    width: var(--svg-size-littleBig);
+    height: var(--svg-size-littleBig);
+}
+
+.fixed_svg {
+    width: var(--svg-size-fixed);
+    height: var(--svg-size-fixed);
+}
+
+.fixed_small_svg {
+    width: var(--svg-size-fixed-small);
+    height: var(--svg-size-fixed-small);
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    margin: 8px 0;
+    border-radius: 1px;
+    background-color: var(--divider-color);
+}
+
+.divider.column {
+    width: 2px;
+    height: 100%;
+    margin: 0 8px;
+}
+
+.bubbleText {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 120%;
+    padding: 8px;
+    font-size: var(--font-size-small);
+    color: var(--color-primary);
+    border-radius: var(--border-radius-small);
+    background-color: var(--bg-color);
+    box-shadow: 0 0 8px var(--shadow-rgba-default);
+    transition: all var(--transition-time-default);
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.bubbleText::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    box-shadow: -4px 4px 6px var(--shadow-rgba-default);
+    background-color: var(--bg-color);
+    z-index: -1;
+}
+
+.noBorder_fill_button:hover .bubbleText {
+    opacity: 1;
+    left: 180%;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 31px;
+    max-height: 240px;
+    border: 1px solid var(--input-border-color-default);
+    border-radius: var(--border-radius-small);
+    outline: none;
+    padding: 5px 6px;
+    font-size: var(--font-size-small);
+    transition: border-color var(--transition-time-default);
+    background-color: transparent;
+    color: var(--font-color-black);
+}
+
+textarea::-webkit-scrollbar {
+    width: 4px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: rgb(var(--color-primary-rgb));
+}
+
+textarea:hover {
+    border-color: var(--input-border-color-hover);
+}
+
+textarea:focus {
+    border-color: var(--input-border-color-focus);
+}
+
+textarea.error {
+    border-color: var(--color-error);
+}
+
+.onlyIcon_primary_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: var(--border-radius-small);
+    color: var(--svg-color-default);
+    transition: all var(--transition-time-default);
+    cursor: pointer;
+}
+
+.onlyIcon_primary_button:hover {
+    color: var(--font-color-primary);
+    background-color: var(--color-primary);
+}
+
+.onlyIcon_primary_button.open {
+    color: var(--font-color-primary);
+    background-color: var(--color-primary);
+}
+
+.close_icon_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    color: var(--svg-color-default);
+    transition: all var(--transition-time-default);
+    cursor: pointer;
+}
+
+.close_icon_button:hover {
+    color: var(--color-error);
+}
+
+input {
+    height: 30px;
+    border: 1px solid var(--input-border-color-default);
+    border-radius: var(--border-radius-small);
+    outline: none;
+    padding: 5px 6px;
+    font-size: var(--font-size-small);
+    transition: border-color var(--transition-time-default);
+    background-color: transparent;
+    color: var(--font-color-black);
+}
+
+input:hover {
+    border-color: var(--input-border-color-hover);
+}
+
+input:focus {
+    border-color: var(--input-border-color-focus);
+}
+
+input.error {
+    border-color: var(--color-error);
+}
+
+.iconText_button {
+    min-height: 30px;
+    font-size: var(--font-size-small);
+    color: var(--font-color-primary);
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-primary);
+    white-space: nowrap;
+    padding: 4px;
+    transition: all var(--transition-time-default);
+    cursor: pointer;
+}
+
+.iconText_button:hover {
+    opacity: 0.75;
+}
+
+.iconText_button svg {
+    transform: translateY(4%);
+    margin-right: 8px;
+}
+
+.iconText_button.error_button {
+    background-color: var(--color-error);
+}
+
+.empty {
+    width: 100%;
+    height: 100%;
+}
+
+.empty img {
+    user-select: none;
+    pointer-events: none;
+}
+
+.input-radio {
+    cursor: pointer;
+    align-items: center;
+    padding: 4px;
+}
+
+.input-radio .radio {
+    position: relative;
+    height: var(--input-radio-size);
+    width: var(--input-radio-size);
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.input-radio .radio::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    animation: radio_before var(--transition-time-default);
+}
+
+.input-radio.checked .radio::before {
+    width: var(--input-radio-done);
+    height: var(--input-radio-done);
+    animation: radio_checked_before var(--transition-time-default);
+}
+
+.input-radio .radio::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    animation: radio_after var(--transition-time-default);
+}
+
+.input-radio.checked .radio::after {
+    width: 0%;
+    height: 0%;
+    /* 设置动画: 动画名称 动画时间 */
+    animation: radio_checked_after var(--transition-time-default);
+}
+
+/* 设置动画 */
+@keyframes radio_checked_before {
+    50% {
+        width: 100%;
+        height: 100%;
+    }
+
+    100% {
+        width: var(--input-radio-done);
+        height: var(--input-radio-done);
+    }
+}
+
+@keyframes radio_before {
+    0% {
+        width: var(--input-radio-done);
+        height: var(--input-radio-done);
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes radio_checked_after {
+    0% {
+        width: 100%;
+        height: 100%;
+    }
+
+    50% {
+        width: 0%;
+        height: 0%;
+    }
+}
+
+@keyframes radio_after {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.input-radio span {
+    font-size: var(--font-size-small);
+    color: var(--font-color-black-sub);
+    transition: color var(--transition-time-default);
+}
+
+.input-radio.checked span {
+    color: var(--font-color-black);
+}
+
+.textButton {
+    padding: 2px 4px;
+    border-radius: var(--border-radius-small);
+    font-size: var(--font-size-small);
+    color: var(--font-color-black-sub);
+    transition: all var(--transition-time-default);
+    cursor: pointer;
+}
+
+.textButton:hover {
+    color: var(--font-color-primary);
+    background-color: var(--color-primary);
+}
+
+.textButton.select {
+    color: var(--font-color-primary);
+    background-color: var(--color-primary);
+}
+
+/* .rightClickMenu {
+    height: 0;
+    width: 0;
+    padding: 8px;
+    border-radius: var(--border-radius-small);
+    background-color: var(--bg-color);
+    box-shadow: 0 0 8px var(--shadow-rgba-default);
+    opacity: 0;
+    z-index: 10;
+    transition: all var(--transition-time-default);
+    pointer-events: none;
+}
+
+.rightClickMenu.open {
+    height: 97px;
+    width: 80px;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.rightClickMenu a {
+    opacity: 0;
+    margin-top: 6px;
+    user-select: none;
+}
+
+.rightClickMenu a:first-child {
+    margin-top: 0;
+}
+
+.rightClickMenu.open a {
+    opacity: 1;
+} */

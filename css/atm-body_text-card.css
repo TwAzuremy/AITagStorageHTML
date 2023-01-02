@@ -1,0 +1,37 @@
+.atm-body .text-card {
+    width: 96%;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: var(--border-radius-default);
+    background-color: var(--bg-color);
+    box-shadow: 0 0 8px var(--shadow-rgba-default);
+}
+
+@media screen and (max-width: 800px) {
+    .atm-body .text-card {
+        width: 92%;
+    }
+}
+
+.text-card > div:last-child {
+    margin-top: 18px;
+}
+
+.text-card > div textarea {
+    min-height: 90px;
+    max-height: 180px;
+}
+
+.text-card > div > div {
+    margin-bottom: 4px;
+}
+
+.text-card > div > div span {
+    font-weight: 600;
+    color: var(--font-color-black-sub);
+    flex: 1;
+}
+
+.text-card > div > div .text-copy {
+    margin-right: 4px;
+}

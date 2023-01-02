@@ -1,0 +1,104 @@
+.right-click-menu {
+    min-width: 200px;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 35px var(--shadow-rgba-default);
+    border-radius: var(--border-radius-default);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-time-default);
+    z-index: 99;
+}
+
+.right-click-menu.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.right-click-menu svg {
+    color: var(--svg-color-default);
+}
+
+.right-click-menu .menu {
+    padding: 8px;
+}
+
+.right-click-menu .item {
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 10px;
+    width: 100%;
+    list-style: none;
+    height: 40px;
+    color: var(--font-color-black-sub);
+    border-radius: var(--border-radius-small);
+    margin-bottom: 4px;
+    transition: all var(--transition-time-default);
+    cursor: pointer;
+}
+
+.right-click-menu .item:last-child {
+    margin-bottom: 0;
+}
+
+.right-click-menu .item div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.right-click-menu .item div+svg {
+    width: 18px;
+    height: 18px;
+}
+
+.right-click-menu .item+svg {
+    pointer-events: none;
+}
+
+.right-click-menu .item span {
+    flex: 1;
+    margin: 0 8px;
+    white-space: nowrap;
+}
+
+.right-click-menu .item:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.right-click-menu .item.select {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.right-click-menu .item:hover>svg,
+.right-click-menu .item:hover>div>svg {
+    color: #ffffff;
+}
+
+.right-click-menu .item.select>svg,
+.right-click-menu .item.select>div>svg {
+    color: #ffffff;
+}
+
+.right-click-menu .item .sub-menu {
+    position: absolute;
+    background-color: var(--bg-color);
+    left: 100%;
+    top: 0;
+    padding: 8px;
+    border-radius: var(--border-radius-default);
+    box-shadow: 0 0 10px var(--shadow-rgba-default);
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition-time-default);
+}
+
+.right-click-menu .item:hover .sub-menu {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.right-click-menu .item .sub-menu .item {
+    padding: 0 5px;
+}
