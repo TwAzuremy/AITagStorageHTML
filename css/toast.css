@@ -1,5 +1,4 @@
 .notifications {
-    position: fixed;
     top: 10px;
     right: 10px;
 }
@@ -8,10 +7,10 @@
     position: relative;
     width: 400px;
     list-style: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius-small);
     padding: 16px;
     margin-bottom: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .08);
+    box-shadow: 0 0 8px var(--shadow-rgba-default);
     background-color: var(--bg-color);
     justify-content: space-between;
     overflow: hidden;
@@ -82,8 +81,8 @@
 
 .toast .column svg {
     color: var(--color);
-    width: var(--svg-size);
-    height: var(--svg-size);
+    width: var(--svg-size-fixed);
+    height: var(--svg-size-fixed);
 }
 
 .toast .column span {
@@ -100,18 +99,6 @@
 
 .toast svg:last-child:hover {
     color: var(--color-error);
-}
-
-.buttons .btn {
-    border: none;
-    outline: none;
-    color: #ffffff;
-    font-size: 14px;
-    padding: 10px 20px;
-    margin: 0 5px;
-    border-radius: 4px;
-    background-color: var(--color);
-    cursor: pointer;
 }
 
 @media screen and (width <=530px) {
