@@ -37,25 +37,23 @@
 }
 
 .mask .popup-remark .remark-title {
-    text-align: center;
-    margin: var(--svg-size-fixed-small) 0 10px 0;
+    text-align: left;
+    margin: 8px 0;
     color: var(--font-color-black);
     /* multi-line text omitted and hidden */
-    /* 文字换行 */
     word-break: normal;
 }
 
 .mask .popup-remark .remark-content {
     color: var(--font-color-black-sub);
-    text-indent: 1em;
     /* multi-line text omitted and hidden */
     word-break: normal;
     margin-bottom: 8px;
 }
 
-.mask .popup-remark .remark-close {
-    top: 4px;
-    right: 4px;
+.mask .popup-remark .popup-remark-top span {
+    font-size: var(--font-size-small);
+    color: var(--font-color-black-sub);
 }
 
 /* add tag form */

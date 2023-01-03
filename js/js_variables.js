@@ -328,9 +328,6 @@ const tagForm_storage = addForm.querySelector('.tagForm-storage');
 const tag_add_button = addForm.querySelector('.tag-add-button');
 const more_add_numbs = addForm.querySelector('.more-add-numbs');
 
-// popup-area
-const popup_area = document.querySelector('.popup-area');
-
 // toast
 const notifications = document.querySelector('.notifications');
 

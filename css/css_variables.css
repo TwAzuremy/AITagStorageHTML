@@ -47,6 +47,7 @@
     --input-border-color-default: rgb(189, 189, 189);
     --input-border-color-hover: rgb(128, 128, 128);
     --input-border-color-focus: rgb(var(--color-primary-rgb));
+    --input-pointEvenNone-bg: #f2f2f2;
     /* scroll bar color */
     --scroll-bar-color: #A0C7FF;
     /* radio */
@@ -98,6 +99,7 @@ body.dark {
     --color-primary: rgba(var(--color-primary-rgb), .87);
     --shadow-rgba-blue: rgba(var(--color-primary-rgb), .45);
     --shadow-rgba-default: rgba(0, 0, 0, .2);
+    --input-pointEvenNone-bg: #404040;
 }
 
 /* 设置滚动条宽度 */
@@ -369,7 +371,8 @@ input {
     outline: none;
     padding: 5px 6px;
     font-size: var(--font-size-small);
-    transition: border-color var(--transition-time-default);
+    transition: border-color var(--transition-time-default),
+        background-color var(--transition-time-default);
     background-color: transparent;
     color: var(--font-color-black);
 }
@@ -384,6 +387,10 @@ input:focus {
 
 input.error {
     border-color: var(--color-error);
+}
+
+input.pointEvenNone {
+    background-color: var(--input-pointEvenNone-bg);
 }
 
 .iconText_button {
