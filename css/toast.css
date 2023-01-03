@@ -99,7 +99,7 @@
 }
 
 .toast svg:last-child:hover {
-    color: var(--close-hover);
+    color: var(--color-error);
 }
 
 .buttons .btn {

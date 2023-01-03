@@ -552,37 +552,3 @@ input.error {
     color: var(--font-color-primary);
     background-color: var(--color-primary);
 }
-
-/* .rightClickMenu {
-    height: 0;
-    width: 0;
-    padding: 8px;
-    border-radius: var(--border-radius-small);
-    background-color: var(--bg-color);
-    box-shadow: 0 0 8px var(--shadow-rgba-default);
-    opacity: 0;
-    z-index: 10;
-    transition: all var(--transition-time-default);
-    pointer-events: none;
-}
-
-.rightClickMenu.open {
-    height: 97px;
-    width: 80px;
-    pointer-events: auto;
-    opacity: 1;
-}
-
-.rightClickMenu a {
-    opacity: 0;
-    margin-top: 6px;
-    user-select: none;
-}
-
-.rightClickMenu a:first-child {
-    margin-top: 0;
-}
-
-.rightClickMenu.open a {
-    opacity: 1;
-} */
