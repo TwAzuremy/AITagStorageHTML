@@ -339,3 +339,4 @@ const rightClickContext = document.querySelector('.right-click-menu')
 const hasSubMenu = rightClickContext.querySelectorAll('.sub-menu');
 const languages = rightClickContext.querySelectorAll('.language .sub-menu .item')
 const appearances = rightClickContext.querySelectorAll('.appearance .sub-menu .item')
+const settings = rightClickContext.querySelector('.menu .setting');

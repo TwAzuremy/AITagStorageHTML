@@ -1,4 +1,4 @@
-window.onload = function () {
+$(document).ready(function () {
     $.ajax({
         url: `${request_url}/configOperation`,
         type: 'POST',
@@ -25,4 +25,4 @@ window.onload = function () {
 
     // loading data
     update_data('templates');
-}
+})

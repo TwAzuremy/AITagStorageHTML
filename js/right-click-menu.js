@@ -50,3 +50,10 @@ appearances.forEach((appearance, index) => {
         config_operation(CONFIG.APPEARANCE, index, FINAL.CONFIGOPERATION_SET)
     })
 })
+
+settings.addEventListener('click', () => {
+    let url_p = window.location.origin + window.location.pathname + '#/settings'
+
+    window.history.pushState(null, null, url_p);
+    location.reload()
+})

@@ -1,4 +1,3 @@
-/* CSS 变量 */
 :root {
     /* sidebar */
     --sidebar-min-height: 560px;
@@ -88,7 +87,6 @@ body {
     overflow-x: hidden;
 }
 
-/* 深色模式下改变 CSS 变量 */
 body.dark {
     background-color: rgb(51, 51, 51);
     --bg-color: rgb(59, 59, 59);
@@ -102,24 +100,20 @@ body.dark {
     --input-pointEvenNone-bg: #404040;
 }
 
-/* 设置滚动条宽度 */
 body::-webkit-scrollbar {
     width: 4px;
 }
 
-/* 设置滚动条背景 */
 body::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
-/* 设置滚动条的样式 */
 body::-webkit-scrollbar-thumb {
     border-radius: 2px;
     background-color: var(--scroll-bar-color);
 }
 
-/* 响应式, 当页面宽度低于 790px 则使用以下样式 */
-@media screen and (max-height: 790px) {
+@media screen and (height < 790px) {
     :root {
         --svg-size-default: 24px;
         --svg-size-littleBig: 32px;
@@ -127,7 +121,6 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-/* 设置一些会共同或会使用非常多的样式, 直接以类名形式放入, 就不用在其样式中添加, 减少 css 代码量 */
 .container {
     width: 100%;
     height: 100%;
