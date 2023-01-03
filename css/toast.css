@@ -1,0 +1,135 @@
+.notifications {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.notifications .toast {
+    position: relative;
+    width: 400px;
+    list-style: none;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .08);
+    background-color: var(--bg-color);
+    justify-content: space-between;
+    overflow: hidden;
+    animation: show_toast .5s ease forwards;
+}
+
+@keyframes show_toast {
+    0% {
+        transform: translateX(calc(100% + 10px));
+    }
+
+    40% {
+        transform: translateX(-5%);
+    }
+
+    80% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+.notifications .toast.hide {
+    animation: hide_toast .5s ease forwards;
+}
+
+@keyframes hide_toast {
+    0% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(0%);
+    }
+
+    80% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(calc(100% + 10px));
+    }
+}
+
+.notifications :where(.toast, .column) {
+    display: flex;
+    align-items: center;
+}
+
+.toast::before {
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color);
+    animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+    100% {
+        width: 0%;
+    }
+}
+
+.toast .column svg {
+    color: var(--color);
+    width: var(--svg-size);
+    height: var(--svg-size);
+}
+
+.toast .column span {
+    color: var(--font-color-black-sub);
+    font-size: 14px;
+    margin-left: 12px;
+}
+
+.toast svg:last-child {
+    color: #bfbfbf;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.toast svg:last-child:hover {
+    color: var(--close-hover);
+}
+
+.buttons .btn {
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    background-color: var(--color);
+    cursor: pointer;
+}
+
+@media screen and (width <=530px) {
+    .notifications {
+        width: 95%;
+    }
+
+    .notifications .toast {
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttons .btn {
+        margin: 5px 0;
+    }
+}

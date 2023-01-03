@@ -38,7 +38,7 @@ function update_data(table) {
             load().then(() => { start_animation() });
         },
         error: function (err) {
-            create_popup(`${SVG.RE} 请求失败`, COLOR.ERROR);
+            createToast(TOAST.ERROR, '请求失败')
             storage_container.innerHTML = TEMPLATES.EMPTY_IMG;
             console.error(err);
         }
@@ -64,13 +64,13 @@ function add_tag(data) {
         processData: false,
         contentType: false,
         success: function (rows) {
-            create_popup(`${SVG.OK} 添加成功`, COLOR.SUCCESS);
+            createToast(TOAST.SUCCESS, '添加成功')
             if (data.get('table') === view_category) {
                 update_data(data.get('table'));
             }
         },
         error: function (err) {
-            create_popup(`${SVG.RE} 添加失败`, COLOR.ERROR);
+            createToast(TOAST.ERROR, '添加失败')
             console.error(err);
         }
     });
@@ -95,13 +95,13 @@ function del_tag(table, id) {
             'id': id,
         },
         success: function (rows) {
-            create_popup(`${SVG.OK} 删除成功`, COLOR.SUCCESS);
+            createToast(TOAST.SUCCESS, '删除成功')
             if (table === view_category) {
                 update_data(table);
             }
         },
         error: function (err) {
-            create_popup(`${SVG.RE} 删除失败`, COLOR.ERROR);
+            createToast(TOAST.ERROR, '删除失败')
             console.error(err);
         }
     });
@@ -130,7 +130,7 @@ function fuzzy_search(fuzzy, mode = SEARCH_MODE.TITLE) {
             add_search_result(data);
         },
         error: function (err) {
-            create_popup(`${SVG.RE} 搜索失败`, COLOR.ERROR);
+            createToast(TOAST.ERROR, '无法搜索')
             search_result.innerHTML = TEMPLATES.EMPTY_IMG;
             console.error(err);
         }
@@ -154,10 +154,10 @@ function bulkAdd(data) {
             'data': data
         },
         success: function (rows) {
-            create_popup(`${SVG.OK} 成功插入 ${rows} 条`, COLOR.SUCCESS);
+            createToast(TOAST.SUCCESS, `已添加 ${rows} 条`)
         },
         error: function (err) {
-            create_popup(`${SVG.RE} 添加失败`, COLOR.ERROR);
+            createToast(TOAST.ERROR, '添加失败')
             console.error(err);
         }
     });
@@ -197,7 +197,7 @@ function config_operation(key, value, operation = FINAL.CONFIGOPERATION_GET) {
             }
         },
         error: function (err) {
-            create_popup(`${SVG.RE} 操作失败`, COLOR.ERROR);
+            createToast(TOAST.ERROR, '操作失败')
             console.error(err)
         }
     })

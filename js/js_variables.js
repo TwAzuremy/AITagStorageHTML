@@ -29,6 +29,9 @@ class TAGS {
     static OTHER = 'other';
 }
 
+/**
+ * config model
+ */
 class CONFIG {
     static APPEARANCE = 'appearance';
     static LANGUAGE = 'language';
@@ -54,6 +57,7 @@ var global_lang = 'zh_cn';
 const language_list = [
     'zh_cn', 'zh_tw', 'en_us', 'ja_jp'
 ];
+const bulkDelList = [];
 
 /**
  * Constants
@@ -69,6 +73,16 @@ class FINAL {
     static SEPARATOR = '::';
     static CONFIGOPERATION_GET = 'GET';
     static CONFIGOPERATION_SET = 'SET';
+}
+
+/**
+ * toast
+ */
+class TOAST {
+    static SUCCESS = 'success';
+    static ERROR = 'error';
+    static WARNING = 'warning';
+    static INFO = 'info';
 }
 
 /**
@@ -316,6 +330,9 @@ const more_add_numbs = addForm.querySelector('.more-add-numbs');
 
 // popup-area
 const popup_area = document.querySelector('.popup-area');
+
+// toast
+const notifications = document.querySelector('.notifications');
 
 // pic show
 const pic_show = document.querySelector('.pic-show');

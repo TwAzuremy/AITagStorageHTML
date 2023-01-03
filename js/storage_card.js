@@ -12,7 +12,6 @@ storage_column_button.addEventListener('click', () => {
 
 bulkDel_button.addEventListener('click', () => {
     const allSelect = document.querySelectorAll('.tag-item.bulkDel');
-    const del_list = [];
 
     allSelect.forEach(element => {
         

@@ -52,6 +52,11 @@
     /* radio */
     --input-radio-size: 16px;
     --input-radio-done: 76%;
+    /* toast */
+    --success: #0abf30;
+    --error: #e24d4c;
+    --warning: #e9bd0c;
+    --info: #3498db;
 }
 
 * {

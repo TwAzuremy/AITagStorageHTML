@@ -6,7 +6,7 @@ categoryBtns.forEach((categoryBtn, index) => {
             document.querySelector('body').classList.toggle('dark');
             dark_mode = !dark_mode;
 
-            create_popup(`✔ ${getLanguage('darkMode')}: ${dark_mode}`, COLOR.SUCCESS);
+            createToast(TOAST.SUCCESS, `${getLanguage('darkMode')}: ${dark_mode}`)
 
             return;
         }
