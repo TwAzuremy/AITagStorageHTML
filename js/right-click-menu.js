@@ -41,7 +41,7 @@ languages.forEach((language, index) => {
 
         global_lang = language_list[index]
         config_operation(CONFIG.LANGUAGE, global_lang, FINAL.CONFIGOPERATION_SET)
-        switch_languages(global_lang)
+        switch_languages(global_lang) 
     })
 })
 
@@ -49,6 +49,12 @@ appearances.forEach((appearance, index) => {
     appearance.addEventListener('click', () => {
         config_operation(CONFIG.APPEARANCE, index, FINAL.CONFIGOPERATION_SET)
     })
+})
+
+rightClick_addTag.addEventListener('click', () => {
+    toggle_mask();
+    addForm_popup();
+    
 })
 
 settings.addEventListener('click', () => {
