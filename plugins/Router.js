@@ -1,18 +1,48 @@
-function Router() {
-    this.routes = {}
-    this.curUrl = ''
+import { pages } from "../pages/pages.js";
 
-    this.route = function (path, callback) {
+class Router {
+    constructor() {
+        this.routes = {};
+        this.curUrl = '';
+    }
+
+    route(path, callback) {
         this.routes[path] = callback || function () { };
     }
 
-    this.refresh = function () {
+    refresh() {
         this.curUrl = location.hash.slice(1) || '/';
-        this.routes[this.curUrl]();
+
+        this.routes[isExists(this.curUrl) ? this.curUrl : '/404']();
     }
 
-    this.init = function () {
+    init() {
         window.addEventListener('load', this.refresh.bind(this), false);
         window.addEventListener('hashchange', this.refresh.bind(this), false);
     }
 }
+
+function isExists(pageName) {
+    for (let i = 0; i < pages.length; i++) {
+        if (pages[i].location == pageName) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+const load = function (location) {
+    $(document).ready(function () {
+        $('#app').load(location)
+    })
+}
+
+var R = new Router()
+R.init()
+
+pages.forEach(page => {
+    R.route(page.location, function () {
+        load(page.html)
+    })
+})

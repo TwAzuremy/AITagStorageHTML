@@ -22,25 +22,7 @@
 <body>
     <div id="app"></div>
 
-    <script src="plugins/Router.js"></script>
-    <script>
-        const load = function (location) {
-            $(document).ready(function () {
-                $('#app').load(location)
-            })
-        }
-
-        var R = new Router()
-        R.init()
-
-        R.route('/', function () {
-            load('home.html')
-        })
-
-        R.route('/settings', function () {
-            load('pages/settings.html')
-        })
-    </script>
+    <script type="module" src="plugins/Router.js"></script>
 </body>
 
 </html>

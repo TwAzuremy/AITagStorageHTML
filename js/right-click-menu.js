@@ -41,7 +41,7 @@ languages.forEach((language, index) => {
 
         global_lang = language_list[index]
         config_operation(CONFIG.LANGUAGE, global_lang, FINAL.CONFIGOPERATION_SET)
-        switch_languages(global_lang) 
+        switch_languages(global_lang)
     })
 })
 
@@ -54,7 +54,7 @@ appearances.forEach((appearance, index) => {
 rightClick_addTag.addEventListener('click', () => {
     toggle_mask();
     addForm_popup();
-    
+
 })
 
 settings.addEventListener('click', () => {
@@ -63,3 +63,8 @@ settings.addEventListener('click', () => {
     window.history.pushState(null, null, url_p);
     location.reload()
 })
+
+window.addEventListener("popstate", function () {
+    location.reload()
+}, false);
+
