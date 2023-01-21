@@ -54,14 +54,23 @@ appearances.forEach((appearance, index) => {
 rightClick_addTag.addEventListener('click', () => {
     toggle_mask();
     addForm_popup();
-
+    addForm_category.value = storage_info.querySelector('.info-title').innerHTML;
+    addForm_category.setAttribute('tagName', storage_info.querySelector('.info-title').dataset.lang);
 })
 
 settings.addEventListener('click', () => {
-    let url_p = window.location.origin + window.location.pathname + '#/settings'
+    setTimeout(() => {
+        let url_p = window.location.origin + window.location.pathname + '#/settings'
 
-    window.history.pushState(null, null, url_p);
-    location.reload()
+        window.history.pushState(null, null, url_p);
+        location.reload()
+    }, 300);
+
+    categoryBtns.forEach(sidebarBtn => {
+        sidebarBtn.classList.remove('slideout')
+    })
+
+    storage_card.classList.remove('animation')
 })
 
 window.addEventListener("popstate", function () {

@@ -8,10 +8,17 @@
 
 .atm-sidebar .categoryBtn {
     margin-top: 8px;
+    transform: translateX(-150%);
+    transition: transform calc(var(--transform-time) * .1s);
+    z-index: 10;
 }
 
 .atm-sidebar .categoryBtn:nth-child(1) {
     margin-top: 0;
+}
+
+.atm-sidebar .categoryBtn.slideout {
+    transform: translateX(0);
 }
 
 .sub_sidebar {

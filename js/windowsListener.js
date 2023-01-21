@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    setTimeout(function () {
+        categoryBtns.forEach(sidebarBtn => {
+            sidebarBtn.classList.add('slideout')
+        })
+    }, 500)
+
+
     $.ajax({
         url: `${request_url}/configOperation`,
         type: 'POST',
@@ -23,6 +30,10 @@ $(document).ready(function () {
         storage_column_button.click();
     }
 
-    // loading data
-    update_data('templates');
+    if (navigator.onLine) {
+        // loading data
+        update_data('templates');
+    } else {
+        setTimeout(function () { createToast(TOAST.WARNING, '无网络链接') }, 1000)
+    }
 })

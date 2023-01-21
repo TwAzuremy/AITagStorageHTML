@@ -93,6 +93,7 @@ function addForm_clear() {
     addForm_remark.value = FINAL.EMPTY;
     addForm_file.value = FINAL.EMPTY;
     addForm_picPath.value = FINAL.EMPTY;
+    addForm_category.setAttribute('tagName', '');
 }
 
 more_add_switch.addEventListener('click', () => {

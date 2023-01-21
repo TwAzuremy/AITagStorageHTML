@@ -143,7 +143,8 @@ body::-webkit-scrollbar-thumb {
     border: none;
     width: calc(var(--svg-size-default) + 12px);
     height: calc(var(--svg-size-default) + 12px);
-    transition: all var(--transition-time-default);
+    transition: color var(--transition-time-default),
+        box-shadow var(--transition-time-default);
     border-radius: var(--border-radius-small);
     background-color: var(--bg-color);
     color: var(--svg-color-default);
@@ -259,7 +260,6 @@ body::-webkit-scrollbar-thumb {
     box-shadow: 0 0 8px var(--shadow-rgba-default);
     transition: all var(--transition-time-default);
     white-space: nowrap;
-    z-index: 10;
     opacity: 0;
     pointer-events: none;
     user-select: none;
@@ -275,6 +275,7 @@ body::-webkit-scrollbar-thumb {
     transform: translate(-50%, -50%) rotateZ(45deg);
     box-shadow: -4px 4px 6px var(--shadow-rgba-default);
     background-color: var(--bg-color);
+    transition: background-color var(--transition-time-default);
     z-index: -1;
 }
 
